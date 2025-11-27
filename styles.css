@@ -443,3 +443,138 @@ body {
     }
 }
 
+
+/* ------------------------------------- */
+/* DEFINICIÓN DE VARIABLES (AÑADIDO) */
+/* ------------------------------------- */
+:root {
+    --color-dark-blue: #022135;
+    --color-icon-circle: #022135;
+    --color-title-dark: #333333;
+    --color-text-light: #666666;
+    --color-background: #FFFFFF;
+    --color-page-background: #F4F6F9;
+}
+
+/* Reset Básico */
+body {
+    background-color: var(--color-page-background);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Contenedor Principal del Artículo --- */
+.article-container {
+    max-width: 900px;
+    background-color: var(--color-background);
+    margin: 40px auto;
+    padding: 60px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* --- Encabezado del Artículo --- */
+.article-header {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 40px;
+}
+
+/* ------------------------------------- */
+/* LOGO CONTENEDOR (El CÍRCULO - Corregido) */
+/* ------------------------------------- */
+.logo-barco_olas {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30px;
+    background-color: #022135;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circular-image {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+/* --- Metadatos (Título, Autor, Palabras Clave) --- */
+.metadata {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--color-title-dark);
+    margin: 0;
+    padding: 0;
+    margin-top: -15px; 
+}
+
+.author {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin: 5px 0;
+}
+
+.author strong {
+    font-weight: 600;
+}
+
+.keywords {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eeeeee; /* Línea sutil sobre las palabras clave */
+}
+
+/* --- Contenido del Artículo --- */
+.article-content {
+    padding-top: 30px;
+}
+
+.article-content p {
+    font-size: 17px;
+    color: #444444;
+    text-align: justify;
+    margin-bottom: 20px;
+    max-width: 800px; 
+}
+
+/* --- Media Queries (Para móviles) --- */
+@media (max-width: 768px) {
+    .article-container {
+        margin: 0;
+        padding: 30px 20px;
+        box-shadow: none;
+    }
+    
+    .article-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-barco_olas { /* Usamos la clase del contenedor */
+        margin: 0 0 20px 0;
+    }
+    
+    .title {
+        font-size: 40px;
+        margin-top: 0;
+    }
+    
+    .keywords {
+        margin-top: 10px;
+    }
+}

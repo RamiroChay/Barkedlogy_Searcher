@@ -33,9 +33,9 @@ body {
 
 .titulo {
     position: relative;
-    top: 1px;
-    left: 250px;
-    width: 250px;
+    top: 15px;
+    left: 300px;
+    width: 260px;
 }
 
 /* OLAS */
@@ -208,62 +208,59 @@ body {
 .content-container {
     display: grid;
     grid-template-columns: 280px auto;
-    gap: 30px;
-    padding: 40px;
+    gap: 10px;
+    padding: 60px;
     background: #f1f4f7;
-    max-width: 1400px; /* Ancho máximo para el contenido */
-    margin: 0 auto;
+    position: relative; /* necesario para la barra flotante */
 }
-
 
 /* ---------------------------- */
 /* SIDEBAR             */
 /* ---------------------------- */
 .sidebar {
     background-color: #022135;
-    padding: 25px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 30px;
     color: white;
     height: fit-content;
+    position: relative; /* mantiene el contexto visual */
 }
 
 .filter-group-top {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    margin-top: 60px; /* deja espacio para la barra flotante */
     margin-bottom: 30px;
 }
 
 .label-button {
-    background: #637b3b; /* Color verde oscuro por defecto */
+    background: #637b3b;
     padding: 10px 18px;
     border-radius: 20px;
     color: white;
     border: none;
     cursor: pointer;
-    font-size: 14px; /* Tamaño del texto del botón */
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
     transition: background-color 0.2s;
 }
 
-/* Estilos de botones NO activos (color verde claro) */
 .label-button:not(.checked) {
     background: #97c240; 
 }
 
-/* Estilos de botones activos (color verde oscuro, con palomita) */
 .label-button.checked {
-    background: #4a642e; /* Verde más oscuro, como en la imagen */
+    background: #4a642e;
 }
 
-/* Grupo Inferior de Checkboxes */
 .filter-group-bottom {
     display: flex;
     flex-direction: column;
     padding-top: 15px;
     gap: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separador sutil */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .checkbox-label {
@@ -271,15 +268,14 @@ body {
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-    color: #cccccc; /* Texto por defecto más claro */
+    color: #cccccc;
 }
 
 .checkbox-label.checked {
-    color: white; /* Texto blanco para los seleccionados */
+    color: white;
 }
 
 .checkbox-label input[type="checkbox"] {
-    /* Ocultar el checkbox nativo y usar un estilo custom */
     appearance: none;
     width: 18px;
     height: 18px;
@@ -293,12 +289,11 @@ body {
 }
 
 .checkbox-label input[type="checkbox"]:checked {
-    border-color: #97c240; /* Borde verde cuando está marcado */
+    border-color: #97c240;
     background: #97c240;
 }
 
 .checkbox-label input[type="checkbox"]:checked::after {
-    /* Simular la palomita (check mark) */
     content: '✓'; 
     color: #022135;
     font-size: 14px;
@@ -308,21 +303,21 @@ body {
     font-weight: bold;
 }
 
-
 /* ---------------------------- */
 /* MAIN CONTENT          */
 /* ---------------------------- */
 .main-content {
-    padding: 0 10px;
+    padding:  10px;
 }
 
 .articles-title {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 35px;
+    margin-top: -10px;
     letter-spacing: 5px;
-    color: #4a642e; /* Color verde oscuro */
+    color: hsl(160, 64%, 14%);
 }
 
 .articles-grid {
@@ -332,28 +327,35 @@ body {
 }
 
 .article-card {
-    background-color: white;
-    border-radius: 12px;
+    background-color: #042c46;
+    border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 15px rgb(253, 252, 252);
     transition: transform 0.3s;
-    min-height: 300px; /* Altura mínima para las tarjetas */
+    min-height: 300px;
+    border-radius: 30px;
+
 }
 
 .article-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 20px rgba(253, 251, 251, 0.15);
 }
 
 .card-image-placeholder {
-    height: 180px; /* Altura de la imagen/espacio superior */
-    background-color: #e3e7ec; /* Un gris claro para el área de la imagen */
-    border-bottom: 1px solid #c7c7c7;
+    height: 180px;
+    background-color: #ecedee;
+    border: 15px solid #042c46;
+    border-bottom: #042c46;
+    border-radius: 30px; /* agrega esto para que sea redondo */
+    box-sizing: border-box; /* asegura que el borde no expanda la caja */
 }
+
+
 
 .card-info {
     padding: 15px 20px;
-    background-color: #022135; /* Fondo azul oscuro para el área de texto */
+    background-color: #042c46;
     color: white;
     min-height: 120px;
 }
@@ -362,30 +364,56 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 5px;
-    color: white;
+    color: rgb(247, 246, 246);
 }
 
 .keywords {
     font-size: 14px;
-    color: #aaaaaa; /* Texto gris claro para las palabras clave */
+    color: #aaaaaa;
     line-height: 1.4;
 }
 
-/* Estilo para las tarjetas "vacías" o incompletas de la fila inferior */
 .article-card.blank {
-    background-color: #f1f4f7;
+    background-color: #042c46;
     box-shadow: none;
-    border: 2px solid #cccccc;
+    border: 2px solid #042c46;
 }
 
 .article-card.blank .card-image-placeholder {
-    background-color: white;
-    border-bottom: 2px solid #cccccc;
+    background-color: rgb(248, 246, 246);
+    border-bottom: 2px solid #042c46;
 }
 
 .article-card.blank .card-info {
-    /* Escondemos la info si la tarjeta está marcada como "blank" */
     display: none;
+}
+
+/* ---------------------------- */
+/* SEARCH BAR FLOTANTE SOBRE SIDEBAR */
+/* ---------------------------- */
+.search-float-container {
+    position: absolute;
+    top: 10px; /* sobresale sobre el sidebar */
+    left: 60px;
+    width: 280px; /* mismo ancho que sidebar */
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+}
+
+.search-float-container input {
+    width: 90%;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* sombra más elegante */
+    transition: box-shadow 0.3s ease;
+}
+
+.search-float-container input:focus {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
 /* ---------------------------- */
@@ -393,16 +421,25 @@ body {
 /* ---------------------------- */
 @media (max-width: 992px) {
     .content-container {
-        grid-template-columns: 1fr; /* Columna única */
+        grid-template-columns: 1fr;
         padding: 20px;
         gap: 20px;
     }
     .sidebar {
-        /* Ocupa el 100% de ancho y ya no necesita 'height: fit-content' */
         height: auto;
     }
     .header {
         padding: 15px 20px;
         font-size: 22px;
     }
+    .search-float-container {
+        position: relative;
+        width: 100%;
+        top: 0;
+        margin-bottom: 20px;
+    }
+    .search-float-container input {
+        width: 100%;
+    }
 }
+

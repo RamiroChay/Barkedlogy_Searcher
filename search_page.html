@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
+    <meta name="SEARCHER" content="width=device-width, initial-scale=1.0">
+    <title>BARKEDLOGY</title>
+    <link rel="icon" type="image/png" href="assets/logo_barquito.png">  
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> 
     <link rel="stylesheet" href="styles.css">
     <script defer src="main.js"></script>
 </head>
@@ -19,80 +21,59 @@
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-
-            <!-- LABEL BUTTONS -->
             <div class="filter-group-top">
                 <button class="label-button">Major</button>
-                <button class="label-button">Interests</button>
-                <button class="label-button">Tour</button>
-                <button class="label-button">Profile</button>
             </div>
 
-            <!-- CHECKBOX FILTERS -->
             <div class="filter-group">
                 <label class="checkbox-item">
                     <input type="checkbox">
                     In Progress
                 </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    Number of students
-                </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    Student results
-                </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    High GPA
-                </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    Low GPA
-                </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    All students
-                </label>
-
-                <label class="checkbox-item">
-                    <input type="checkbox">
-                    Graduated
-                </label>
             </div>
-
         </aside>
 
         <!-- MAIN CONTENT -->
-        <main class="cards-container">
+        <main class="main-content">
+            <h1 class="articles-title">ARTICLES</h1>
 
-            <div class="card">
-                <h3>Major</h3>
-                <p>5 Active</p>
+            <div class="articles-grid">
+
+                <div class="article-card" data-category="Major">
+                    <div class="card-image-placeholder"></div>
+                    <div class="card-info">
+                        <h2 class="article-name">Article name 1: Title Major</h2>
+                        <p class="keywords">key words, abc abc abc abc abc abc</p>
+                    </div>
+                </div>
+
+                <div class="article-card" data-category="Minor">
+                    <div class="card-image-placeholder"></div>
+                    <div class="card-info">
+                        <h2 class="article-name">Article name 2: Interest</h2>
+                        <p class="keywords">key words, xyz xyz xyz xyz</p>
+                    </div>
+                </div>
+
+                <div class="article-card blank">
+                    <div class="card-image-placeholder"></div>
+                </div>
+
             </div>
-
-            <div class="card">
-                <h3>Interest</h3>
-                <p>18 Active</p>
-            </div>
-
-            <div class="card">
-                <h3>Profile</h3>
-                <p>3 Active</p>
-            </div>
-
-            <div class="card">
-                <h3>Tour</h3>
-                <p>2 Active</p>
-            </div>
-
         </main>
-    </div>
+
+        <!-- SEARCH BAR FLOTANTE SOBRE SIDEBAR -->
+        <div class="search-float-container">
+            <input 
+                type="text" 
+                id="searchInput" 
+                class="search-input" 
+                placeholder="Buscar artículos por título o palabra clave..."
+                aria-label="Campo de búsqueda de artículos"
+            >
+        </div>
+
+    </div> <!-- end content-container -->
 
 </body>
 </html>

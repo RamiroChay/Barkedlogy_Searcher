@@ -458,7 +458,6 @@ body {
 
 /* Reset Básico */
 body {
-    background-color: var(--color-page-background);
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
@@ -482,73 +481,65 @@ body {
     margin-bottom: 40px;
 }
 
-/* ------------------------------------- */
-/* LOGO CONTENEDOR (El CÍRCULO - Corregido) */
-/* ------------------------------------- */
-.logo-barco_olas {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 30px;
-    background-color: #022135;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.image_logo {
+    position: relative;
+    top: -60px;
+    left: -10px;
+    width: 90px;        /* Tamaño del círculo */
+    height: 90px;
 }
-
-.circular-image {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
 
 
 /* --- Metadatos (Título, Autor, Palabras Clave) --- */
 .metadata {
     display: flex;
     flex-direction: column;
+    margin-bottom: 70px;
+    margin-left: 50px;
 }
 
 .title {
-    font-size: 56px;
-    font-weight: 800;
+    font-size: 65px;
+    font-weight: 790;
     color: var(--color-title-dark);
     margin: 0;
     padding: 0;
-    margin-top: -15px; 
+    margin-top: -15px;
+    margin-right: 10px; 
 }
 
 .author {
     font-size: 18px;
-    color: var(--color-text-light);
-    margin: 5px 0;
+    color: black;
+    margin: -20px 0;
+    font-weight: 790;
 }
 
 .author strong {
-    font-weight: 600;
+    font-weight: 790;
 }
 
 .keywords {
     font-size: 16px;
-    color: var(--color-text-light);
+    color: #020d14;
+    margin: -1px ;
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px solid #eeeeee; /* Línea sutil sobre las palabras clave */
+    font-weight: 300;
 }
 
 /* --- Contenido del Artículo --- */
 .article-content {
-    padding-top: 30px;
+    padding-top: 0 px;
 }
 
 .article-content p {
-    font-size: 17px;
-    color: #444444;
+    font-size: 15px;
+    color: #000000;
     text-align: justify;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
     max-width: 800px; 
 }
 
@@ -576,5 +567,128 @@ body {
     
     .keywords {
         margin-top: 10px;
+    }
+}
+
+
+/* Sidebar oculto a la izquierda */
+.sidebar1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.35s ease-in-out;
+    z-index: 999;
+}
+
+/* Sidebar visible */
+.sidebar-open .sidebar1 {
+    transform: translateX(0);
+}
+
+/* Contenido que se mueve */
+#page-content {
+    transition: transform 0.35s ease-in-out;
+}
+
+/* Cuando el sidebar está abierto, todo se corre */
+.sidebar-open #page-content {
+    transform: translateX(220px);
+}
+
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/* ======================================== */
+/* ⛵ ANIMACIÓN DE FONDO DE BARQUITOS FLOTANTES */
+/* ======================================== */
+
+/* Contenedor del fondo (sin cambios significativos) */
+.hojas-fondo {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Fondo blanco */
+    overflow: hidden; 
+    z-index: -2; /* MUY IMPORTANTE: Coloca el fondo detrás de todo */
+}
+
+/* Estilo de cada barquito (ahora son imágenes) */
+.hoja { 
+    position: absolute;
+    display: block;
+    width: 40px; /* Tamaño base de los barquitos. Ajusta este valor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    opacity: 0.7; /* Un poco de transparencia para que no distraigan demasiado */
+    
+    /* ¡AQUÍ ESTÁ LA CORRECCIÓN! Definimos la animación para cada hoja */
+    animation: caer linear infinite; /* Nombre de la animación, tipo, y que se repita */
+}
+
+/* Posiciones y velocidad aleatoria para cada barquito */
+/* Estas propiedades de animación se sobreescribirán para cada hoja individual */
+.hoja:nth-child(1) {
+    left: 20%;
+    animation-duration: 10s; /* Duración de la animación */
+    animation-delay: 0s;     /* Retraso antes de que empiece */
+    width: 35px; /* Tamaño ligeramente diferente */
+}
+
+.hoja:nth-child(2) {
+    left: 45%;
+    animation-duration: 15s;
+    animation-delay: 5s;
+    width: 50px; /* Tamaño ligeramente diferente */
+}
+
+.hoja:nth-child(3) {
+    left: 80%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    width: 40px; 
+}
+
+.hoja:nth-child(4) {
+    left: 10%;
+    animation-duration: 18s;
+    animation-delay: 8s;
+    width: 45px;
+}
+
+.hoja:nth-child(5) {
+    left: 60%;
+    animation-duration: 14s;
+    animation-delay: 4s;
+    width: 30px;
+}
+
+.hoja:nth-child(6) {
+    left: 90%;
+    animation-duration: 20s;
+    animation-delay: 1s;
+    width: 55px;
+}
+
+/* ⛵ Define la animación de caída */
+@keyframes caer {
+    0% {
+        top: -10%; /* Empieza ligeramente fuera de la vista arriba */
+        transform: translateX(0) rotate(0deg); /* Sin movimiento lateral y sin rotación al inicio */
+    }
+    100% {
+        top: 110%; /* Cae completamente fuera de la vista abajo */
+        transform: translateX(50px) rotate(360deg); /* Un poco de movimiento lateral y rotación */
     }
 }

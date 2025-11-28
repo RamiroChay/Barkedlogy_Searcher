@@ -10,3 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+const btn = document.querySelector('.sidebar-toggle-btn');
+btn.addEventListener('click', () => {
+    document.body.classList.toggle('sidebar-open');
+});

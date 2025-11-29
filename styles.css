@@ -10,16 +10,16 @@ body {
 .hero {
     position: relative;
     height: 300px;
-    background: transparent;  /* ← importante */
-    overflow: visible;        /* ← este es el ajuste CLAVE */
+    background: transparent;
+    overflow: visible;    
 }
 
 /* El contenedor azul: */
 .fondo-azul {
-    background-color: #022135;  /* ← vuelve a ser azul */
+    background-color: #022135;
     padding-top: 0;
     padding-bottom: 100px;
-    min-height: 600px;
+    min-height: 200px;
     position: relative;
     z-index: 1;
 }
@@ -39,7 +39,6 @@ body {
 }
 
 /* OLAS */
-/* --- Definiciones de las Olas (Tus clases originales) --- */
 .wave {
     position: absolute;
     width: 100%;
@@ -54,7 +53,6 @@ body {
     bottom: 0;
     left: 0;
     width: 120%;
-    /* La transformación base ya está aquí */
     transform: scale(1.07); 
     transform-origin: bottom;
 }
@@ -62,29 +60,28 @@ body {
 /* Posición Vertical de las Capas */
 /* --- Posición Vertical de las Capas --- */
 
-/* La ola más alta (wave1) debe tener el z-index más alto para estar delante */
 .wave1 { 
     bottom: 65px; 
     z-index: 1002; 
 }
 
-/* La ola intermedia (wave2) */
+
 .wave2 { 
-    /* Colócala más abajo en la pantalla (menos 'bottom') */
+
     bottom: -40px; 
-    /* Y con un z-index intermedio */
+
     z-index: 1003; 
 }
 
-/* La ola más baja (wave3) debe tener el z-index más bajo para estar detrás de todas */
+
 .wave3 { 
-    /* La más baja de todas en la pantalla */
+
     bottom: -145px; 
-    /* El z-index más bajo para que parezca más lejana */
+
     z-index: 1004; 
 }
 
-/* --- Animación (Sólo wave1) --- */
+
 
 @keyframes waveAnimation {
     0% { transform: translateX(0) scale(1.07); }
@@ -95,11 +92,11 @@ body {
     animation: waveAnimation 30s linear infinite alternate;
 }
 
-/* Asegura que las imágenes de las otras olas NO se muevan */
+
 .wave2 .wave-img,
 .wave3 .wave-img {
     animation: none;
-    /* Necesitas mantener el transform: scale(1.07) para que se ajuste al ancho */
+    
     transform: scale(1.07); 
 }
 
@@ -109,14 +106,15 @@ body {
 ----------------------- */
 
 .descripcion {
-    margin-top: 100px;
-    width: 60%;
+    margin-top: 60px;
+    width: 18%;
     margin-left: auto;
     margin-right: auto;
+    z-index: 1007 px
 }
 
 .descripcion p {
-    line-height: 1.6;
+    line-height: 4;
     text-align: center;
 }
 
@@ -125,14 +123,14 @@ body {
 ----------------------- */
 
 .buscador {
-    margin-top: 60px;
+    margin-top: 10px;
     text-align: center;
 }
 
 .search-box {
     display: flex;
     justify-content: center;
-    width: 40%;
+    width: 50%;
     margin: auto;
 }
 
@@ -149,7 +147,7 @@ body {
     background: #637b3b;
     border: none;
     border-radius: 0 25px 25px 0;
-    font-size: 18px;
+    font-size: 30px;
     cursor: url("assets/cursor_barquito.png"), pointer;
 }
 
@@ -201,6 +199,17 @@ body {
     width: 250px;
 }
 
+.header a {
+    cursor: pointer;
+    display: inline-block; 
+}
+
+.titulo_largo:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
 
 /* ---------------------------- */
 /* PAGE LAYOUT GRID       */
@@ -211,96 +220,46 @@ body {
     gap: 10px;
     padding: 60px;
     background: #f1f4f7;
-    position: relative; /* necesario para la barra flotante */
+    position: relative; 
 }
 
 /* ---------------------------- */
 /* SIDEBAR             */
 /* ---------------------------- */
-.sidebar {
-    background-color: #022135;
-    padding: 10px;
-    border-radius: 30px;
-    color: white;
-    height: fit-content;
-    position: relative; /* mantiene el contexto visual */
+.sidebar-tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+    padding: 10px 0;
 }
 
-.filter-group-top {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 60px; /* deja espacio para la barra flotante */
-    margin-bottom: 30px;
-}
-
-.label-button {
-    background: #637b3b;
-    padding: 10px 18px;
-    border-radius: 20px;
-    color: white;
+/* Estilo de cada botón de palabra clave */
+.keyword-tag {
+    background-color: #e2e8f0;
+    color: #334155;
     border: none;
+    padding: 6px 12px;
+    border-radius: 20px; 
+    font-size: 13px;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
+    transition: all 0.2s ease;
     text-align: center;
-    transition: background-color 0.2s;
 }
 
-.label-button:not(.checked) {
-    background: #97c240; 
-}
-
-.label-button.checked {
-    background: #4a642e;
-}
-
-.filter-group-bottom {
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    gap: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.checkbox-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-size: 16px;
-    color: #cccccc;
-}
-
-.checkbox-label.checked {
+.keyword-tag:hover {
+    background-color: #0ea5e9; 
     color: white;
+    transform: translateY(-2px); 
 }
 
-.checkbox-label input[type="checkbox"] {
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border: 2px solid #cccccc;
-    border-radius: 3px;
-    margin-right: 10px;
-    cursor: pointer;
-    position: relative;
-    background: transparent;
-    transition: all 0.2s;
+.filter-header h3 {
+    margin-bottom: 5px;
+    color: #334155;
 }
 
-.checkbox-label input[type="checkbox"]:checked {
-    border-color: #97c240;
-    background: #97c240;
-}
 
-.checkbox-label input[type="checkbox"]:checked::after {
-    content: '✓'; 
-    color: #022135;
-    font-size: 14px;
-    position: absolute;
-    top: -2px;
-    left: 2px;
-    font-weight: bold;
+.search-btn1 span {
+    pointer-events: none;
 }
 
 /* ---------------------------- */
@@ -330,7 +289,6 @@ body {
     background-color: #042c46;
     border-radius: 30px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgb(253, 252, 252);
     transition: transform 0.3s;
     min-height: 300px;
     border-radius: 30px;
@@ -347,8 +305,8 @@ body {
     background-color: #ecedee;
     border: 15px solid #042c46;
     border-bottom: #042c46;
-    border-radius: 30px; /* agrega esto para que sea redondo */
-    box-sizing: border-box; /* asegura que el borde no expanda la caja */
+    border-radius: 30px; 
+    box-sizing: content-box; 
 }
 
 
@@ -367,11 +325,15 @@ body {
     color: rgb(247, 246, 246);
 }
 
-.keywords {
-    font-size: 14px;
-    color: #aaaaaa;
-    line-height: 1.4;
+.article-card:hover .keywords {
+
+    color: #637b3b !important; 
+    transition: color 0.3s ease; 
 }
+
+
+
+
 
 .article-card.blank {
     background-color: #042c46;
@@ -393,9 +355,9 @@ body {
 /* ---------------------------- */
 .search-float-container {
     position: absolute;
-    top: 10px; /* sobresale sobre el sidebar */
+    top: 10px; 
     left: 60px;
-    width: 280px; /* mismo ancho que sidebar */
+    width: 280px; 
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -408,12 +370,26 @@ body {
     border: none;
     outline: none;
     background-color: #fff;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25); /* sombra más elegante */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25); 
     transition: box-shadow 0.3s ease;
 }
 
 .search-float-container input:focus {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.load-more-btn {
+    background-color: #1e293b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.load-more-btn:hover {
+    background-color: #637b3b; 
 }
 
 /* ---------------------------- */
@@ -485,7 +461,7 @@ body {
     position: relative;
     top: -60px;
     left: -10px;
-    width: 90px;        /* Tamaño del círculo */
+    width: 90px;       
     height: 90px;
 }
 
@@ -499,7 +475,7 @@ body {
 }
 
 .title {
-    font-size: 65px;
+    font-size: 30px;
     font-weight: 790;
     color: var(--color-title-dark);
     margin: 0;
@@ -512,6 +488,13 @@ body {
     font-size: 18px;
     color: black;
     margin: -20px 0;
+    font-weight: 790;
+}
+
+.source-link{
+    font-size: 18px;
+    color: black;
+    margin: 20px 0;
     font-weight: 790;
 }
 
@@ -556,7 +539,7 @@ body {
         text-align: center;
     }
     
-    .logo-barco_olas { /* Usamos la clase del contenedor */
+    .logo-barco_olas {
         margin: 0 0 20px 0;
     }
     
@@ -576,14 +559,91 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 220px;
+    width: 270px;
     height: 100vh;
     background: #1e293b;
     color: white;
-    padding: 20px;
+    padding: 50px;
     transform: translateX(-100%);
     transition: transform 0.35s ease-in-out;
     z-index: 999;
+}
+
+.logo-largo {
+    width: 280px;
+    max-width: 260 px;
+    height: auto
+}
+
+/* ====== BUSCADOR ====== */
+
+.sidebar-search {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-search input {
+    width: 100%;
+    padding: 9px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    margin-top: 10px;
+    outline: none;
+}
+
+.sidebar-search button {
+    width: 70px;
+    background: #637b3b;
+    border: none;
+    border-radius: 0 25px 25px 0;
+    font-size: 26px;
+    margin-top: 1px;
+    cursor: url("assets/cursor_barquito.png"), pointer;
+}
+
+/* ====== TAGS / CATEGORÍAS ====== */
+.sidebar-tags {
+    margin-top: 20px;
+}
+
+.sidebar-tags h3 {
+    margin-bottom: 10px;
+}
+
+.tag-btn {
+    display: inline-block;
+    padding: 7px 12px;
+    margin: 5px 5px 0 0;
+    background: #334155;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.tag-btn:hover {
+    background: #475569;
+}
+
+.tag-btn.active {
+    background: #0ea5e9;
+}
+
+.sidebar1 a {
+    cursor: pointer;
+    display: block;       
+    text-align: center;   
+    width: 100%;     
+    margin-bottom: 20px; 
+}
+
+.logo-largo:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
 }
 
 /* Sidebar visible */
@@ -598,7 +658,7 @@ body {
 
 /* Cuando el sidebar está abierto, todo se corre */
 .sidebar-open #page-content {
-    transform: translateX(220px);
+    transform: translateX(70px);
 }
 
 .sidebar-toggle-btn {
@@ -620,37 +680,36 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff; /* Fondo blanco */
+    background-color: #ffffff;
     overflow: hidden; 
-    z-index: -2; /* MUY IMPORTANTE: Coloca el fondo detrás de todo */
+    z-index: -2; 
 }
 
 /* Estilo de cada barquito (ahora son imágenes) */
 .hoja { 
     position: absolute;
     display: block;
-    width: 40px; /* Tamaño base de los barquitos. Ajusta este valor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    opacity: 0.7; /* Un poco de transparencia para que no distraigan demasiado */
+    width: 40px; 
+    height: auto; 
+    opacity: 0.7; 
     
-    /* ¡AQUÍ ESTÁ LA CORRECCIÓN! Definimos la animación para cada hoja */
-    animation: caer linear infinite; /* Nombre de la animación, tipo, y que se repita */
+    animation: caer linear infinite;
 }
 
 /* Posiciones y velocidad aleatoria para cada barquito */
 /* Estas propiedades de animación se sobreescribirán para cada hoja individual */
 .hoja:nth-child(1) {
     left: 20%;
-    animation-duration: 10s; /* Duración de la animación */
-    animation-delay: 0s;     /* Retraso antes de que empiece */
-    width: 35px; /* Tamaño ligeramente diferente */
+    animation-duration: 10s;
+    animation-delay: 0s;    
+    width: 35px; 
 }
 
 .hoja:nth-child(2) {
     left: 45%;
     animation-duration: 15s;
     animation-delay: 5s;
-    width: 50px; /* Tamaño ligeramente diferente */
+    width: 50px; 
 }
 
 .hoja:nth-child(3) {
@@ -684,11 +743,73 @@ body {
 /* ⛵ Define la animación de caída */
 @keyframes caer {
     0% {
-        top: -10%; /* Empieza ligeramente fuera de la vista arriba */
-        transform: translateX(0) rotate(0deg); /* Sin movimiento lateral y sin rotación al inicio */
+        top: -10%; 
+        transform: translateX(0) rotate(0deg);
     }
     100% {
-        top: 110%; /* Cae completamente fuera de la vista abajo */
-        transform: translateX(50px) rotate(360deg); /* Un poco de movimiento lateral y rotación */
+        top: 110%; 
+        transform: translateX(50px) rotate(360deg); 
     }
+}
+
+/* Sugerencias de Autocompletado */
+.autocomplete-wrapper {
+    position: relative;
+    width: 100%; /* Esto asegura que no se rompa tu diseño */
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 14px;
+    text-align: left;
+}
+
+.suggestion-item:hover {
+    background-color: #f1f5f9;
+    color: #0ea5e9;
+}
+
+/* =========================================
+   ARREGLO VISUAL DEL AUTOCOMPLETADO (FIX)
+   ========================================= */
+
+
+.search-box, 
+.sidebar-search {
+    display: flex !important;
+    align-items: center;
+    gap: 0 !important; 
+}
+
+
+.autocomplete-wrapper {
+    flex-grow: 1; 
+    display: flex;     
+    position: relative;
+    margin: 0 !important;
+}
+
+
+.autocomplete-wrapper input {
+    width: 100% !important;
+    margin: 0 !important; 
+    border-top-right-radius: 0 !important;    
+    border-bottom-right-radius: 0 !important; 
 }

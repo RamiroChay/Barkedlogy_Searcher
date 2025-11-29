@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets/logo_barquito.png">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> 
-    <title>Articulo</title>
+    <title>Lectura de Artículo</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -18,7 +18,7 @@
         <img src="assets/logo_barquito.png" alt="Barquito_olas" class="hoja">
         <img src="assets/logo_barquito.png" alt="Barquito_olas" class="hoja">
         <img src="assets/logo_barquito.png" alt="Barquito_olas" class="hoja">
-        </div>
+    </div>
 
 <div id="page-content">
 
@@ -26,37 +26,51 @@
 
         <header class="article-header">
 
-            <!-- BOTÓN DEL LOGO -->
-            <button class="sidebar-toggle-btn">
+            <button class="sidebar-toggle-btn" id="toggleSidebar">
                 <img src="assets/logo_olas.png" alt="Barquito_olas" class="image_logo">
             </button>
 
-            <!-- Metadata -->
             <div class="metadata">
-                <h1 class="title">TITLE</h1>
-                <p class="author">Autor: <strong>Jhon Doe</strong></p>
-                <p class="keywords">Key words: abc abc abc abc abc abc</p>
+                <h1 class="title" id="art-title">Cargando título...</h1>
+                
+                <p class="source-link">
+                    Fuente Original: <a href="#" target="_blank" id="art-link">Ver artículo completo</a>
+                </p>
+                
+                <p class="keywords" id="art-cluster">Cargando categoría...</p>
             </div>
 
         </header>
 
-        <section class="article-content">
-            <p> ... </p>
-            <p> ... </p>
+        <section class="article-content" id="art-abstract">
+            <p>Cargando contenido...</p>
         </section>
 
     </div>
 
 </div>
 
-<!-- SIDEBAR -->
-<aside class="sidebar1">
-    <h2>Sidebar</h2>
-    <p>Aquí van opciones o menú.</p>
+<aside class="sidebar1" id="mainSidebar">
+
+
+        <a href="index.html">
+            <img src="assets/logo_largo.png" alt="titulo-barkedlogy" class="logo-largo">
+        </a>
+
+    <div class="sidebar-search">
+        <input type="text" id="sidebarSearchInput" placeholder="Buscar otro artículo...">
+        <button class="search-btn1" id="sidebarSearchBtn"><span>&#128269;</span></button>
+    </div>
+
+    <div class="sidebar-tags">
+        <h3>Navegación</h3>
+        <button class="tag-btn" onclick="window.location.href='index.html'">Inicio</button>
+        <button class="tag-btn" onclick="window.location.href='search_page.html'">Volver a búsqueda</button>
+    </div>
+
 </aside>
 
 <script src="script.js"></script>
 
 </body>
-
 </html>

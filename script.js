@@ -187,7 +187,9 @@ function renderSearchResults(articles, shouldClearGrid) {
     const grid = document.querySelector(".articles-grid");
     if (!grid) return;
 
-    if (shouldClearGrid) grid.innerHTML = "";
+    if (shouldClearGrid) {
+        grid.innerHTML = "";
+    }
 
     if (articles.length === 0 && shouldClearGrid) {
         grid.innerHTML = `<p style="text-align:center; width:100%; color:#555;">No se encontraron resultados.</p>`;
@@ -205,8 +207,27 @@ function renderSearchResults(articles, shouldClearGrid) {
 
         let keywordsText = article.cluster_name || "Sin categoría";
 
+        // 1. OBTENER ID DEL CLUSTER
+        // Usamos 'final_cluster' que viene de tu API (ej: "100", "101")
+        // Si es "-1" o null, usamos 'default'
+        let clusterId = article.final_cluster;
+        if (!clusterId || clusterId === "-1" || clusterId === "nan") {
+            clusterId = "default";
+        }
+
+        // 2. CONSTRUIR RUTA DE LA IMAGEN
+        // Asumimos que son .jpg. Si usas .png cámbialo aquí.
+        const imagePath = `assets/clusters/${clusterId}.jpg`;
+        const fallbackImage = `assets/logo_barquito.png`; // Imagen por si falla la carga
+
         card.innerHTML = `
-            <div class="card-image-placeholder"></div>
+            <img 
+                src="${imagePath}" 
+                alt="${article.cluster_name}" 
+                class="card-image"
+                onerror="this.onerror=null; this.src='${fallbackImage}';"
+            >
+            
             <div class="card-info">
                 <h2 class="article-name">${article.title || "Sin Título"}</h2>
                 <p class="keywords" style="color: rgba(255, 255, 255, 1);">${keywordsText}</p>

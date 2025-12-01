@@ -304,11 +304,16 @@ body {
 }
 
 .card-image {
-    width: 100%;   
-    height: 180px;      
-    object-fit: cover;    
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
     display: block;
-    border-bottom: 5px solid #042c46; 
+
+    margin-top: 15px;
+    border-bottom: 1px solid #042c46;
+
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
 
 

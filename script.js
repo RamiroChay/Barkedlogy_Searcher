@@ -2,7 +2,7 @@
 // 1. CONFIGURACIÓN Y VARIABLES GLOBALES
 // ======================================
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://space-biology-knowledge-engine-n1jh.onrender.com";
 
 // Variables para controlar la paginación
 let currentSkip = 0;
@@ -16,25 +16,22 @@ let currentClusterId = null;
 // ======================================
 
 async function fetchSuggestions(term) {
-    if (term.length < 3) return []; // No buscar si es muy corto
+    if (term.length < 3) return []; 
 
     try {
-        // Pedimos reglas con un limite bajo para no saturar
         const res = await fetch(`${API_URL}/associations?term=${term}&limit=5`);
         if (!res.ok) return [];
         
         const data = await res.json();
         
-        // Extraemos las palabras sugeridas (consequents)
-        // Usamos un Set para evitar duplicados
+
         const suggestions = new Set();
         
         data.rules.forEach(rule => {
-            // rule.consequents es una lista ["online", "available"]
+
             rule.consequents.forEach(word => suggestions.add(word));
         });
 
-        // Convertimos a array y tomamos máximo 5 sugerencias
         return Array.from(suggestions).slice(0, 5);
 
     } catch (error) {
@@ -53,15 +50,14 @@ function setupAutocomplete(inputId) {
     if (!input) return;
 
     // 1. Crear contenedor para sugerencias si no existe
-    // Envolvemos el input en un div relativo para posicionar la lista
+
     const wrapper = document.createElement("div");
     wrapper.classList.add("autocomplete-wrapper");
     
-    // Insertamos el wrapper antes del input y movemos el input adentro
+
     input.parentNode.insertBefore(wrapper, input);
     wrapper.appendChild(input);
 
-    // Creamos la caja de sugerencias
     const suggestionsBox = document.createElement("div");
     suggestionsBox.classList.add("suggestions-box");
     wrapper.appendChild(suggestionsBox);
@@ -71,7 +67,7 @@ function setupAutocomplete(inputId) {
     input.addEventListener("input", () => {
         const term = input.value.trim();
         
-        // Limpiar timeout anterior (Debounce básico)
+
         clearTimeout(timeoutId);
 
         if (term.length < 3) {
@@ -79,7 +75,6 @@ function setupAutocomplete(inputId) {
             return;
         }
 
-        // Esperar 300ms antes de llamar a la API
         timeoutId = setTimeout(async () => {
             const suggestions = await fetchSuggestions(term);
             
@@ -106,14 +101,12 @@ function renderSuggestions(list, box, input) {
     list.forEach(word => {
         const item = document.createElement("div");
         item.classList.add("suggestion-item");
-        // Resaltamos la sugerencia
         item.innerHTML = `Relacionado: <strong>${word}</strong>`;
         
         item.addEventListener("click", () => {
-            // Al hacer click, completamos el input y buscamos
-            input.value = word; // O puedes concatenar: input.value + " " + word
+            input.value = word; 
             box.style.display = "none";
-            searchArticles(word); // Ejecutamos la búsqueda
+            searchArticles(word); 
         });
 
         box.appendChild(item);
@@ -208,17 +201,15 @@ function renderSearchResults(articles, shouldClearGrid) {
         let keywordsText = article.cluster_name || "Sin categoría";
 
         // 1. OBTENER ID DEL CLUSTER
-        // Usamos 'final_cluster' que viene de tu API (ej: "100", "101")
-        // Si es "-1" o null, usamos 'default'
         let clusterId = article.final_cluster;
         if (!clusterId || clusterId === "-1" || clusterId === "nan") {
             clusterId = "default";
         }
 
         // 2. CONSTRUIR RUTA DE LA IMAGEN
-        // Asumimos que son .jpg. Si usas .png cámbialo aquí.
+
         const imagePath = `assets/clusters/${clusterId}.jpg`;
-        const fallbackImage = `assets/logo_barquito.png`; // Imagen por si falla la carga
+        const fallbackImage = `assets/logo_barquito.png`;
 
         card.innerHTML = `
             <img 

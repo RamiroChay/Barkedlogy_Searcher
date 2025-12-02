@@ -52,13 +52,15 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 120%;
-    transform: scale(1.07); 
-    transform-origin: bottom;
+    width: 100%; 
+    height: auto; 
+    min-width: 1200px; 
+    min-height: 150px;
+    left: 0%;
+    transform: translateX(-50%); 
 }
 
-/* Posición Vertical de las Capas */
-/* --- Posición Vertical de las Capas --- */
+
 
 .wave1 { 
     bottom: 65px; 
@@ -106,16 +108,17 @@ body {
 ----------------------- */
 
 .descripcion {
-    margin-top: 60px;
-    width: 18%;
+    margin-top: 0px;
+    width: 20%;
     margin-left: auto;
     margin-right: auto;
-    z-index: 1007 px
+    z-index: 1007 px;
 }
 
 .descripcion p {
-    line-height: 4;
+    line-height: 10;
     text-align: center;
+    z-index: 1007 px;
 }
 
 /* -----------------------
@@ -591,8 +594,8 @@ body {
 }
 
 .logo-largo {
-    width: 280px;
-    max-width: 260 px;
+
+    max-width: 100%;
     height: auto
 }
 

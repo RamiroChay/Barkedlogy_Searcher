@@ -18,29 +18,31 @@ body {
 .fondo-azul {
     background-color: #022135;
     padding-top: 0;
-    padding-bottom: 100px;
-    min-height: 200px;
+    padding-bottom: 90px;
+    min-height: 100px;
     position: relative;
     z-index: 1;
 }
 
 .logo-barco {
     position: absolute;
-    top: 20px;
-    left: 150px;
-    width: 100px;
-    height: auto;
-
+    top: 30px;
+    left: 12vw; 
+    width: 100px; 
+    max-width: 15vw;
+    z-index: 20;
+    transition: left 0.3s ease, width 0.3s ease; 
 }
 
 .titulo {
     position: relative;
-    top: 15px;
-    left: 300px;
-    width: 260px;
-    height: auto;
+    top: 10px; 
+    left: 24vw; 
+    width: auto;
+    max-width: 20vw;
+    z-index: 20;
+    transition: left 0.3s ease, width 0.3s ease;
 }
-
 /* OLAS */
 .wave {
     position: absolute;
@@ -55,7 +57,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%; 
+    width: 120%; 
     height: auto; 
     min-width: 1200px; 
     min-height: 150px;
@@ -111,17 +113,20 @@ body {
 ----------------------- */
 
 .descripcion {
-    margin-top: 0px;
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 1007 px;
+    position: relative;
+    z-index: 1007;
+    width: 80%; 
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 100px;  
+    color: white;    
+    text-align: center;
 }
 
 .descripcion p {
-    line-height: 10;
-    text-align: center;
-    z-index: 1007 px;
+    line-height: 1.6;   
+    font-size: 16px;   
+    margin-bottom: 0;
 }
 
 /* -----------------------

@@ -21,21 +21,36 @@
     <!-- MAIN CONTAINER -->
     <div class="content-container">
 
-        <aside class="sidebar">
-            
-            <div class="filter-header">
-                <h3>Explorar Temas</h3>
-                <p style="font-size: 12px; color: #888;">Sugerencias aleatorias</p>
+            <div class="sidebar-wrapper">
+                
+                <div class="search-float-container">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        class="search-input" 
+                        placeholder="Buscar..."
+                    >
+                </div>
+
+                <aside class="sidebar">
+                    <div class="filter-header">
+                        <h3>Explorar Temas</h3>
+                        <p style="font-size: 12px; color: #888;">Sugerencias aleatorias</p>
+                    </div>
+
+                    <div id="sidebar-keywords-container" class="sidebar-tags-cloud">
+                        <p>Cargando...</p>
+                    </div>
+                    
+                    <div class="sidebar-tags" style="margin-top: 30px;">
+                        <h3>Navegación</h3>
+                        <button class="tag-btn" onclick="window.location.href='index.html'">Inicio</button>
+                        </div>
+                </aside>
+                
             </div>
 
-            <div id="sidebar-keywords-container" class="sidebar-tags-cloud">
-                <p>Cargando...</p>
-            </div>
-
-        </aside>
-
-        <main class="main-content">
-            
+            <main class="main-content">
                 <h1 class="articles-title">
                     ARTICLES 
                     <span id="result-count" style="font-size: 0.6em; font-weight: normal; color: #555;"></span>
@@ -43,25 +58,14 @@
 
                 <div class="articles-grid"></div>
 
-
                 <div class="pagination-container" style="text-align: center; margin: 20px 0;">
-                        <button id="loadMoreBtn" class="load-more-btn" style="display: none;">
-                            Cargar más resultados
-                        </button>
+                    <button id="loadMoreBtn" class="load-more-btn" style="display: none;">
+                        Cargar más resultados
+                    </button>
                 </div>    
             </main>
 
-        <!-- SEARCH BAR FLOTANTE -->
-        <div class="search-float-container">
-            <input 
-                type="text" 
-                id="searchInput" 
-                class="search-input" 
-                placeholder="Buscar artículos por título o palabra clave..."
-            >
         </div>
-
-    </div>
 
     <script src="script.js"></script>
 </body>

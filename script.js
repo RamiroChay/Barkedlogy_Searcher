@@ -332,7 +332,7 @@ function initializeArticlePage() {
     }
     if (clusterElem) clusterElem.textContent = `Categoría: ${article.cluster_name || "General"}`;
     if (abstractElem) {
-        const textContent = article.clean_abstract || article.abstract || "No hay resumen.";
+        const textContent = article.abstract || article.abstract || "No hay resumen.";
         abstractElem.innerHTML = `<p>${textContent}</p>`;
     }
 

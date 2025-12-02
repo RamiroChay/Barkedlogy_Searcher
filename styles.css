@@ -437,6 +437,10 @@ body {
     background: transparent;
 }
 
+.sidebar-tags h3{
+    color: #000;
+}
+
 
 /* ------------------------------------- */
 /* DEFINICIÓN DE VARIABLES (AÑADIDO) */
@@ -477,7 +481,7 @@ body {
 
 .image_logo {
     position: relative;
-    top: -20px;
+    top: -30px;
     left: -10px;
     width: 90px;       
     height: 90px;
@@ -554,7 +558,7 @@ body {
     width: 270px;
     height: 100vh;
     background: #1e293b;
-    color: white;
+    color: rgb(249, 245, 245);
     padding: 50px;
     transform: translateX(-100%);
     transition: transform 0.35s ease-in-out;
@@ -609,7 +613,7 @@ body {
     padding: 7px 12px;
     margin: 5px 5px 0 0;
     background: #334155;
-    color: white;
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 8px;
     cursor: pointer;

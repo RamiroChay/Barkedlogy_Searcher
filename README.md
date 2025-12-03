@@ -150,7 +150,7 @@ Git instalado.
 
 1. Clonar el repositorio
 
-git clone [https://github.com/tu-usuario/barkedlogy.git](https://github.com/tu-usuario/barkedlogy.git)
+git clone [https://github.com/ramirochay/barkedlogy.git]
 cd barkedlogy
 
 
@@ -189,6 +189,8 @@ const API_URL = "[http://127.0.0.1:8000](http://127.0.0.1:8000)";
 
 Abre index.html en tu navegador web.
 
+.
+
 🚀 Despliegue (Deployment)
 
 El proyecto está configurado para un despliegue continuo (CI/CD) utilizando servicios en la nube gratuitos para garantizar la accesibilidad pública.
@@ -199,9 +201,9 @@ El servicio detecta automáticamente los cambios en la rama principal (main) y r
 
 Configuración: Se forzó el uso de PYTHON_VERSION = 3.9.18 para asegurar compatibilidad total con librerías científicas como Pandas y Scikit-learn.
 
-Frontend (Web): La página se levantó utilizando GitHub Pages.
+Frontend (Web): La página se levantó utilizando GitHub Pages, lo que permite acceder a la aplicación desde cualquier dispositivo sin necesidad de instalación.
 
-Sirve los archivos estáticos (HTML/CSS/JS) directamente desde el repositorio.
+URL Pública: https://ramirochay.github.io/Barkedlogy_Searcher/index.html
 
 Se conecta de forma segura (HTTPS) a la API alojada en Render para obtener los datos en tiempo real.
 
